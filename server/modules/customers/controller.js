@@ -66,7 +66,7 @@ module.exports.getCustomer = async (req, res) => {
     ]);
     return res
       .status(200)
-      .json({ data: customer, message: "Customer fetched." });
+      .json({ data: customer[0], message: "Customer fetched." });
   } catch (err) {
     res.status(500).send({ error: err });
   }
