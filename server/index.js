@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const customerRoutes = require("./modules/customers/routes");
+const transactionRoutes = require("./modules/transactions/routes");
 const app = express();
 require("dotenv").config();
 
@@ -21,7 +22,7 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-app.use("/api/v1", [customerRoutes]);
+app.use("/api/v1", [customerRoutes, transactionRoutes]);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
